@@ -1,0 +1,38 @@
+Date : 2024-06-02 20:26:27
+Directory : c:\Users\busin\Desktop\Final Project\JavaScript for final project
+Total : 12 files,  2671 codes, 14 comments, 151 blanks, all 2836 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |      1,647 |          0 |          2 |      1,649 |
+| JavaScript |          7 |        650 |         14 |         93 |        757 |
+| HTML       |          3 |        374 |          0 |         56 |        430 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                | files      | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                   |         12 |      2,671 |         14 |        151 |      2,836 |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                            | language   | code       | comment    | blank      | total      |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airlines.js       | JavaScript |        110 |          1 |         18 |        129 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airplane.html     | HTML       |        271 |          0 |         44 |        315 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Countries.js      | JavaScript |         83 |          4 |         12 |         99 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Customers.js      | JavaScript |        115 |          3 |         16 |        134 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Flights.js        | JavaScript |        110 |          3 |         16 |        129 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Tickets.js        | JavaScript |        130 |          3 |         18 |        151 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\app.js            | JavaScript |         89 |          0 |         12 |        101 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\connection.js     | JavaScript |         13 |          0 |          1 |         14 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\index.html        | HTML       |         51 |          0 |          6 |         57 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package-lock.json | JSON       |      1,626 |          0 |          1 |      1,627 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package.json      | JSON       |         21 |          0 |          1 |         22 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\project.html      | HTML       |         52 |          0 |          6 |         58 |
+| Total                                                                               |            |      2,671 |         14 |        151 |      2,836 |
++-------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "faker": "^6.6.6",
+    "knex": "^3.1.0",
+    "method-override": "^3.0.0",
+    "mysql": "^2.18.1",
+    "mysql2": "^3.9.7",
+    "pug": "^3.0.3"
+  },
+  "name": "javascript-for-final-project",
+  "version": "1.0.0",
+  "main": "Airlines.js",
+  "scripts": {
+    "dev": "nodemon app.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

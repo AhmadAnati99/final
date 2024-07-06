@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Explore Airlines</title>
+  <style>
+    .container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+
+    .box {
+      width: 30%;
+      padding: 20px;
+      margin-bottom: 20px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      background-color: #f9f9f9;
+      overflow-y: auto;
+      max-height: 300px;
+    }
+
+    .box:nth-child(odd) {
+      background-color: #e6f7ff;
+    }
+
+    label {
+      display: inline-block;
+      width: 100px;
+      margin-bottom: 5px;
+    }
+
+    input[type="text"],
+    input[type="password"] {
+      width: calc(100% - 110px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="box">
+      <h1>All Airlines</h1>
+      <button class="button" id="getAllAirlines">Get All Airlines</button>
+      <div class="airline-list" id="airlineList"></div>
+    </div>
+
+    <div class="box">
+      <h1>Airline By ID</h1>
+      <input type="text" id="airlineId" placeholder="Enter Airline ID" />
+      <button id="getAirlineByIdButton">Get Airline by ID</button>
+      <div id="airlineDetails"></div>
+    </div>
+
+    <div class="box">
+      <h1>Get Airline by Username</h1>
+      <input type="text" id="airlineUsername" placeholder="Enter Username" />
+      <button id="getAirlineByUsernameButton">Get Airline by Username</button>
+      <div id="airlineByUsernameDetails"></div>
+    </div>
+
+    <div class="box">
+      <h2>Add Airline</h2>
+      <form id="addAirlineForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="countryId">Country ID:</label>
+        <input type="text" id="countryId" name="countryId" required>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+
+        <button type="button" id="addAirlineButton">Add Airline</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h2>Edit Airline</h2>
+      <form id="editAirlineForm">
+        <label for="editAirlineId">Airline ID:</label>
+        <input type="text" id="editAirlineId" name="editAirlineId" required>
+
+        <label for="editName">New Name:</label>
+        <input type="text" id="editName" name="editName">
+
+        <label for="editCountryId">New Country ID:</label>
+        <input type="text" id="editCountryId" name="editCountryId">
+
+        <label for="editUsername">New Username:</label>
+        <input type="text" id="editUsername" name="editUsername">
+
+        <label for="editPassword">New Password:</label>
+        <input type="password" id="editPassword" name="editPassword">
+
+        <button type="button" id="editAirlineButton">Edit Airline</button>
+      </form>
+    </div>
+
+    <div class="box">
+      <h1>Remove Airline</h1>
+      <input type="text" id="removeAirlineId" placeholder="Enter Airline ID to remove" />
+      <button id="removeAirlineButton">Remove Airline</button>
+    </div>
+  </div>
+  <script>
+    const airlineListElement = document.getElementById('airlineList');
+    const getAirlineByIdButton = document.getElementById('getAirlineByIdButton');
+    const getAirlineByUsernameButton = document.getElementById('getAirlineByUsernameButton');
+    const addAirlineButton = document.getElementById('addAirlineButton');
+    const addAirlineForm = document.getElementById('addAirlineForm');
+    const removeAirlineButton = document.getElementById('removeAirlineButton'); 
+    const editAirlineButton = document.getElementById('editAirlineButton');
+
+    document.getElementById('getAllAirlines').addEventListener('click', () => {
+      console.log('Fetching all airlines...');
+      fetch('/api/airlines')
+        .then(response => response.json())
+        .then(airlines => {
+          console.log('Airlines fetched successfully:', airlines);
+          airlineListElement.innerHTML = '';
+          const airlineList = document.createElement('ol');
+          airlines.forEach((airline) => {
+            const listItem = document.createElement('li');
+            listItem.textContent = `ID: ${airline.id}, Name: ${airline.name}, Country ID: ${airline.country_id}, Username: ${airline.user_name}, Password: ${airline.password}`;
+            airlineList.appendChild(listItem);
+          });
+          airlineListElement.appendChild(airlineList);
+        })
+        .catch(error => {
+          console.error('Error fetching airlines:', error);
+        });
+    });
+    
+
+    getAirlineByIdButton.addEventListener('click', () => {
+      console.log('Get Airline by ID button clicked');
+      getAirlineById();
+    });
+
+    getAirlineByUsernameButton.addEventListener('click', () => {
+      console.log('Get Airline by Username button clicked');
+      getAirlineByUsername();
+    });
+
+    addAirlineButton.addEventListener('click', () => {
+      console.log('Add Airline button clicked');
+      addAirline();
+    });
+
+    editAirlineButton.addEventListener('click', () => {
+      console.log('Edit Airline button clicked');
+      editAirline();
+    });
+
+    removeAirlineButton.addEventListener('click', async () => { 
+      const airlineId = document.getElementById('removeAirlineId').value;
+      console.log(`Removing airline with ID: ${airlineId}`);
+
+      try {
+        const response = await fetch(`/api/airlines/${airlineId}`, {
+          method: 'DELETE'
+        });
+
+        if (response.ok) {
+          const deletedAirline = await response.json();
+          console.log('Airline removed:', deletedAirline);
+          
+        } else {
+          const errorData = await response.json();
+          console.error('Error removing airline:', errorData);
+          alert(`Error: ${errorData.error}`);
+        }
+      } catch (error) {
+        console.error('Error removing airline:', error);
+        alert('An error occurred while removing the airline.');
+      }
+    }); 
+
+    async function getAirlineById() {
+      const airlineId = document.getElementById('airlineId').value;
+      console.log(`Fetching airline with ID: ${airlineId}`);
+
+      try {
+        const response = await fetch(`/api/airlines/${airlineId}`);
+        const airline = await response.json();
+
+        if (response.ok) {
+          console.log('Airline fetched successfully:', airline);
+          const airlineDetailsDiv = document.getElementById('airlineDetails');
+          airlineDetailsDiv.innerHTML = `
+            <h2>${airline.name}</h2>
+            <p>ID: ${airline.id}</p>
+            <p>Country ID: ${airline.country_id}</p>
+            <p>Username: ${airline.user_name}</p>
+            <p>Password: ${airline.password}</p>
+          `;
+        } else {
+          console.error('Error response from server:', airline);
+          alert(`Error: ${airline.error}`);
+        }
+      } catch (error) {
+        console.error('Error fetching airline:', error);
+        alert('An error occurred while fetching the airline data.');
+      }
+    }
+
+    async function getAirlineByUsername() {
+      const airlineUsername = document.getElementById('airlineUsername').value;
+      console.log(`Fetching airline with username: ${airlineUsername}`);
+
+      try{
+        const response = await fetch(`/api/airlines/username/${airlineUsername}`);
+const airline = await response.json();
+if (response.ok) {
+      console.log('Airline fetched successfully:', airline);
+      const airlineDetailsDiv = document.getElementById('airlineByUsernameDetails');
+      airlineDetailsDiv.innerHTML = `
+        <h2>${airline.name}</h2>
+        <p>ID: ${airline.id}</p>
+        <p>Country ID: ${airline.country_id}</p>
+        <p>Username: ${airline.user_name}</p>
+        <p>Password: ${airline.password}</p>
+      `;
+    } else {
+      console.error('Error response from server:', airline);
+      alert(`Error: ${airline.error}`);
+    }
+  } catch (error) {
+    console.error('Error fetching airline:', error);
+    alert('An error occurred while fetching the airline data.');
+  }
+}
+
+async function addAirline() {
+  const name = document.getElementById('name').value;
+  const countryId = document.getElementById('countryId').value;
+  const username = document.getElementById('username').value;
+  const password = document.getElementById('password').value;
+
+  const newAirline = { name, country_id: countryId, user_name: username, password };
+
+  console.log('Adding new airline:', newAirline);
+
+  try {
+    const response = await fetch('/api/airlines', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(newAirline)
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('New airline added:', data);
+      addAirlineForm.reset();
+    } else {
+      const errorData = await response.json();
+      console.error('Error adding airline:', errorData);
+      alert(`Error: ${errorData.error}`);
+    }
+  } catch (error) {
+    console.error('Error adding airline:', error);
+    alert('An error occurred while adding the airline.');
+  }
+}
+
+async function editAirline() {
+  const editAirlineId = document.getElementById('editAirlineId').value;
+  const editName = document.getElementById('editName').value;
+  const editCountryId = document.getElementById('editCountryId').value;
+  const editUsername = document.getElementById('editUsername').value;
+  const editPassword = document.getElementById('editPassword').value;
+
+  const editedAirline = { 
+    name: editName,
+    country_id: editCountryId,
+    user_name: editUsername,
+    password: editPassword
+  };
+
+  console.log('Editing airline with ID:', editAirlineId, 'Data:', editedAirline);
+
+  try {
+    const response = await fetch(`/api/airlines/${editAirlineId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(editedAirline)
+    });
+
+    if (response.ok) {
+      const data = await response.json();
+      console.log('Airline edited successfully:', data);
+    
+    } else {
+      const errorData = await response.json();
+      console.error('Error editing airline:', errorData);
+      alert(`Error: ${errorData.error}`);
+    }
+  } catch (error) {
+    console.error('Error editing airline:', error);
+    alert('An error occurred while editing the airline.');
+  }
+}
+</script>
+</body>
+</html>
+```

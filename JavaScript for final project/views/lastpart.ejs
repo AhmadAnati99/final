@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flights List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #fff;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        .btn-container {
+            display: flex;
+            gap: 10px;
+        }
+        .btn {
+            padding: 8px 12px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Flights List</h1>
+        <table>
+            <thead>
+                <tr>
+                    <th>DEPARTS</th>
+                    <th>ORIGIN COUNTRY</th>
+                    <th>DESTINATION COUNTRY</th>
+                    <th>AIRLINE</th>
+                    <th>ACTIONS</th>
+                </tr>
+            </thead>
+            <tbody id="flights-table-body">
+               
+            </tbody>
+        </table>
+        <form action="/add-flight" method="GET">
+            <button type="submit" class="btn">Add Flight</button>
+        </form>
+    </div>
+
+    <script>
+        async function fetchFlights() {
+            try {
+                const response = await fetch('/api/flights');
+                const flights = await response.json();
+                const tableBody = document.getElementById('flights-table-body');
+
+                for (const flight of flights) {
+                    const row = document.createElement('tr');
+
+                    const departsCell = document.createElement('td');
+                    departsCell.textContent = new Date(flight.departure_time).toLocaleString();
+                    row.appendChild(departsCell);
+
+                    const originCountryCell = document.createElement('td');
+                    originCountryCell.textContent = flight.origin_country_name;
+                    row.appendChild(originCountryCell);
+
+                    const destinationCountryCell = document.createElement('td');
+                    destinationCountryCell.textContent = await fetchNameById('countries', flight.destination_country_id);
+                    row.appendChild(destinationCountryCell);
+
+                    const airlineCell = document.createElement('td');
+                    airlineCell.textContent = await fetchNameById('airlines', flight.airline_company_id);
+                    row.appendChild(airlineCell);
+
+                    const actionsCell = document.createElement('td');
+                    const editForm = document.createElement('form');
+                    editForm.action = `/edit-flight/${flight.id}`;
+                    editForm.method = 'GET';
+                    const editButton = document.createElement('button');
+                    editButton.type = 'submit';
+                    editButton.textContent = 'Edit';
+                    editForm.appendChild(editButton);
+
+                    const deleteForm = document.createElement('form');
+                    deleteForm.action = `/delete-flight/${flight.id}?_method=DELETE`;
+                    deleteForm.method = 'POST';
+                    const deleteButton = document.createElement('button');
+                    deleteButton.type = 'button';
+                    deleteButton.textContent = 'Delete';
+                    deleteButton.onclick = () => confirmDelete(deleteForm);
+                    deleteForm.appendChild(deleteButton);
+
+                    actionsCell.appendChild(editForm);
+                    actionsCell.appendChild(deleteForm);
+
+                    row.appendChild(actionsCell);
+
+                    tableBody.appendChild(row);
+                }
+            } catch (error) {
+                console.error('Error fetching flights:', error);
+            }
+        }
+
+        async function fetchNameById(resourceType, id) {
+            try {
+                const response = await fetch(`/api/${resourceType}/${id}`);
+                if (!response.ok) {
+                    throw new Error(`HTTP error! Status: ${response.status}`);
+                }
+                const data = await response.json();
+                return data.name;
+            } catch (error) {
+                console.error(`Error fetching ${resourceType} name for ID ${id}:`, error);
+                return '';
+            }
+        }
+
+        function confirmDelete(form) {
+            setTimeout(function() {
+                var confirmed = confirm("Are you sure you want to delete this flight?");
+                if (confirmed) {
+                    form.submit();
+                }
+            }, 2000); // 2 seconds delay
+        }
+
+        window.onload = fetchFlights;
+    </script>
+</body>
+</html>

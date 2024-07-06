@@ -1,0 +1,35 @@
+Date : 2024-06-29 14:22:50
+Directory : c:\Users\busin\Desktop\Final Project\JavaScript for final project
+Total : 7 files,  264 codes, 0 comments, 18 blanks, all 282 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| HTML       |          4 |        117 |          0 |         11 |        128 |
+| JSON       |          2 |         84 |          0 |          0 |         84 |
+| JavaScript |          1 |         63 |          0 |          7 |         70 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                        |          7 |        264 |          0 |         18 |        282 |
+| . (Files)                                                                                |          5 |         95 |          0 |          1 |         96 |
+| views                                                                                    |          2 |        169 |          0 |         17 |        186 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                 | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\app.js                 | JavaScript |         63 |          0 |          7 |         70 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\index.html             | HTML       |          1 |          0 |          0 |          1 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package-lock.json      | JSON       |         83 |          0 |          0 |         83 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package.json           | JSON       |          1 |          0 |          0 |          1 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\project.html           | HTML       |        -53 |          0 |         -6 |        -59 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\project.ejs      | HTML       |         74 |          0 |         10 |         84 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\registration.ejs | HTML       |         95 |          0 |          7 |        102 |
+| Total                                                                                    |            |        264 |          0 |         18 |        282 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

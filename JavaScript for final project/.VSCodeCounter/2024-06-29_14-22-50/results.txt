@@ -1,0 +1,42 @@
+Date : 2024-06-29 14:22:50
+Directory : c:\Users\busin\Desktop\Final Project\JavaScript for final project
+Total : 14 files,  3140 codes, 15 comments, 190 blanks, all 3345 lines
+
+Languages
++------------+------------+------------+------------+------------+------------+
+| language   | files      | code       | comment    | blank      | total      |
++------------+------------+------------+------------+------------+------------+
+| JSON       |          2 |      1,731 |          0 |          2 |      1,733 |
+| JavaScript |          7 |        822 |         14 |        112 |        948 |
+| HTML       |          5 |        587 |          1 |         76 |        664 |
++------------+------------+------------+------------+------------+------------+
+
+Directories
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| path                                                                                     | files      | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| .                                                                                        |         14 |      3,140 |         15 |        190 |      3,345 |
+| . (Files)                                                                                |         12 |      2,971 |         15 |        173 |      3,159 |
+| views                                                                                    |          2 |        169 |          0 |         17 |        186 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+
+Files
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| filename                                                                                 | language   | code       | comment    | blank      | total      |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airlines.js            | JavaScript |        110 |          1 |         18 |        129 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airplane.html          | HTML       |        271 |          0 |         44 |        315 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Countries.js           | JavaScript |         83 |          4 |         12 |         99 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Customers.js           | JavaScript |        115 |          3 |         16 |        134 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Flights.js             | JavaScript |        115 |          3 |         16 |        134 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\Tickets.js             | JavaScript |        130 |          3 |         18 |        151 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\app.js                 | JavaScript |        256 |          0 |         31 |        287 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\connection.js          | JavaScript |         13 |          0 |          1 |         14 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\flightslist.html       | HTML       |         95 |          1 |          9 |        105 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\index.html             | HTML       |         52 |          0 |          6 |         58 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package-lock.json      | JSON       |      1,709 |          0 |          1 |      1,710 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\package.json           | JSON       |         22 |          0 |          1 |         23 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\project.ejs      | HTML       |         74 |          0 |         10 |         84 |
+| c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\registration.ejs | HTML       |         95 |          0 |          7 |        102 |
+| Total                                                                                    |            |      3,140 |         15 |        190 |      3,345 |
++------------------------------------------------------------------------------------------+------------+------------+------------+------------+------------+

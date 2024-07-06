@@ -1,0 +1,20 @@
+"filename", "language", "JavaScript", "HTML", "JSON", "comment", "blank", "total"
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airlines.js", "JavaScript", 110, 0, 0, 1, 18, 129
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Airplane.html", "HTML", 0, 271, 0, 0, 44, 315
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Countries.js", "JavaScript", 83, 0, 0, 4, 12, 99
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Customers.js", "JavaScript", 115, 0, 0, 3, 16, 134
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Flights.js", "JavaScript", 129, 0, 0, 3, 17, 149
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\Tickets.js", "JavaScript", 130, 0, 0, 3, 18, 151
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\app.js", "JavaScript", 321, 0, 0, 1, 42, 364
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\connection.js", "JavaScript", 13, 0, 0, 0, 1, 14
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\flightslist.html", "HTML", 0, 95, 0, 0, 10, 105
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\index.html", "HTML", 0, 52, 0, 0, 6, 58
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\package-lock.json", "JSON", 0, 0, 1737, 0, 1, 1738
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\package.json", "JSON", 0, 0, 23, 0, 1, 24
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\add-flight.ejs", "HTML", 0, 86, 0, 1, 7, 94
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\delete-flight.ejs", "HTML", 0, 65, 0, 0, 2, 67
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\edit-flight.ejs", "HTML", 0, 102, 0, 0, 10, 112
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\lastpart.ejs", "HTML", 0, 138, 0, 1, 15, 154
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\project.ejs", "HTML", 0, 75, 0, 0, 10, 85
+"c:\Users\busin\Desktop\Final Project\JavaScript for final project\views\registration.ejs", "HTML", 0, 101, 0, 0, 10, 111
+"Total", "-", 901, 985, 1760, 17, 240, 3903

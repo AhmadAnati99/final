@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Flight</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 30px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        label {
+            font-weight: bold;
+        }
+        input[type="text"], input[type="datetime-local"], select {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        .btn-group {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .btn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        .btn:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Add Flight</h1>
+    <form action="/api/flights" method="POST">
+        <label for="airline_company_id">Airline:</label>
+        <select id="airline_company_id" name="airline_company_id">
+            <!-- Populate options dynamically from your backend -->
+            <% airlines.forEach(airline => { %>
+                <option value="<%= airline.id %>"><%= airline.name %></option>
+            <% }); %>
+        </select>
+        <br>
+
+        <label for="origin_country_id">Origin Country ID:</label>
+        <input type="text" id="origin_country_id" name="origin_country_id" required>
+        <br>
+
+        <label for="destination_country_id">Destination Country ID:</label>
+        <input type="text" id="destination_country_id" name="destination_country_id" required>
+        <br>
+
+        <label for="departure_time">Departure Date and Time:</label>
+        <input type="datetime-local" id="departure_time" name="departure_time" required>
+        <br>
+
+        <label for="landing_time">Landing Date and Time:</label>
+        <input type="datetime-local" id="landing_time" name="landing_time" required>
+        <br>
+
+        <label for="remaining_tickets">Remaining Tickets:</label>
+        <input type="text" id="remaining_tickets" name="remaining_tickets" required>
+        <br>
+
+        <div class="btn-group">
+            <input type="submit" value="Add Flight" class="btn">
+        </div>
+    </form>
+</body>
+</html>
